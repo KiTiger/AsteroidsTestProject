@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f19962b218b14730a7a04c45640f860, type: 3}
+  m_Name: GameViewConfiguration
+  m_EditorClassIdentifier: 
+  "visual\u041Codes":
+  - viewMode: 0
+    spaceshipPref: {fileID: 3614144089286993607, guid: fd64ce407fdf844619e3b433e28fa748, type: 3}
+    flyingSaucerPref: {fileID: 7768860078916081608, guid: a06a9d50010b545759d8242b9843f0b8, type: 3}
+    bigAsteroidPref: {fileID: 2336029529553664996, guid: 5fefd1227aefb41f8a5913d124fa392a, type: 3}
+    smallAsteroidPref: {fileID: 2250219767042340732, guid: 83836ece8e0ea49f99c93816e6a6ec33, type: 3}
+    bulletPref: {fileID: 716838841382477159, guid: 09d5b4b76cd4044fb97c3ae9f0dda514, type: 3}
+    laserPref: {fileID: 4303777863876361254, guid: e0e425d67898f4e33a306cddd24ca972, type: 3}
+  - viewMode: 1
+    spaceshipPref: {fileID: 1134831650991924931, guid: 0af21336717c64679a33c5644835a32d, type: 3}
+    flyingSaucerPref: {fileID: 3415415499540788171, guid: 027b2851476a245ea888a4a501cbefc9, type: 3}
+    bigAsteroidPref: {fileID: 1809271117064393324, guid: f505416e152284b3e80b1727e19ff29f, type: 3}
+    smallAsteroidPref: {fileID: 654155785894429211, guid: 476510d8e55e444149ffe1fcf4dd1d9a, type: 3}
+    bulletPref: {fileID: 6460545366377876279, guid: 32fe99ef6057d483ea4f4d286851881c, type: 3}
+    laserPref: {fileID: 7518951585750912896, guid: 73ed074abfa2148cab4bd21516823a58, type: 3}
