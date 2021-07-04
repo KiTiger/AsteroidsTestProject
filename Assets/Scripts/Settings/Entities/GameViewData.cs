@@ -1,7 +1,6 @@
 using System;
-using System.Collections.Generic;
 using AsteroidsTestProject.Controllers;
-using AsteroidsTestProject.Model;
+using AsteroidsTestProject.ViewModel;
 using UnityEngine;
 
 namespace AsteroidsTestProject.Settings

@@ -1,5 +1,7 @@
-using AsteroidsTestProject.Model;
+using AsteroidsTestProject.GameEngine;
+using AsteroidsTestProject.GameEngine.Utils;
 using AsteroidsTestProject.Utils;
+using AsteroidsTestProject.ViewModel;
 using UnityEngine;
 
 namespace AsteroidsTestProject.Controllers
@@ -11,32 +13,39 @@ namespace AsteroidsTestProject.Controllers
         private float speed;
         private float turningSpeed;
         private IGameManager gameManager;
+        private InputManager inputManager;
         private Vector3 moveVector;
         private Vector3 rotationVector;
 
         public Vector3 position => transform.position;
+
+        public Vector3 GetBulletsSpawnPosition => bulletsSpawnPosition.position;
+        public Vector3 GetBulletsSpawnDirectrion => transform.eulerAngles;
+
 
         SpaceObjectType ISpaceObject.SpaceObjectType => SpaceObjectType.Spaceship;
 
         public event Block onCollidedEnemy;
         public event Block onCrossedBordersOfScreen;
 
-        public void SetData(float speed, float turningSpeed, IGameManager gameManager)
+        public void SetData(float speed, float turningSpeed, IGameManager gameManager,
+            InputManager inputManager)
         {
             this.speed = speed;
             this.turningSpeed = turningSpeed;
             this.gameManager = gameManager;
+            this.inputManager = inputManager;
 
-            gameManager.InputManager.ShotButtonClick += ShotButtonClick;
-            gameManager.InputManager.LaserButtonClick += LaserButtonClick;
+            inputManager.ShotButtonClick += ShotButtonClick;
+            inputManager.LaserButtonClick += LaserButtonClick;
 
             SimpleInjector.Add((ISpaceship)this);
         }
 
         public void PrepareDestroy()
         {
-            gameManager.InputManager.ShotButtonClick -= ShotButtonClick;
-            gameManager.InputManager.LaserButtonClick -= LaserButtonClick;
+            inputManager.ShotButtonClick -= ShotButtonClick;
+            inputManager.LaserButtonClick -= LaserButtonClick;
         }
 
         void ISpaceObject.CrossedBordersOfScreen()
@@ -60,21 +69,21 @@ namespace AsteroidsTestProject.Controllers
         {
             if (gameManager.GameState.CurrentGamePart != GamePart.Battle) return;
 
-            rotationVector.z = -gameManager.InputManager.XAxis * turningSpeed * Time.deltaTime;
+            rotationVector.z = -inputManager.XAxis * turningSpeed * Time.deltaTime;
             transform.eulerAngles += rotationVector;
 
-            moveVector.x = gameManager.InputManager.UpButtonPressed ? speed * Time.deltaTime : 0;
+            moveVector.x = inputManager.UpButtonPressed ? speed * Time.deltaTime : 0;
             transform.Translate(moveVector, Space.Self);
         }
 
         private void ShotButtonClick()
         {
-            gameManager.BulletsManager.CreateBullet(bulletsSpawnPosition.position, transform.eulerAngles);
+            gameManager.BulletsManager.CreateBullet();
         }
 
         private void LaserButtonClick()
         {
-            gameManager.LaserManager.CreateLaser(bulletsSpawnPosition.position, transform.eulerAngles);
+            gameManager.LaserManager.CreateLaser();
         }
 
         private void OnDestroy()

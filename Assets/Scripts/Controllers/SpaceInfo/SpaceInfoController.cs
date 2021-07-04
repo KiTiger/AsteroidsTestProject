@@ -1,4 +1,4 @@
-using AsteroidsTestProject.Model;
+using AsteroidsTestProject.GameEngine;
 using AsteroidsTestProject.Utils;
 using UnityEngine;
 

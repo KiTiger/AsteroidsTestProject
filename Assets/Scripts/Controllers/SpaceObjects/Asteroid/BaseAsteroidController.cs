@@ -1,5 +1,5 @@
-using AsteroidsTestProject.Model;
-using AsteroidsTestProject.Utils;
+using AsteroidsTestProject.GameEngine;
+using AsteroidsTestProject.GameEngine.Utils;
 using UnityEngine;
 
 namespace AsteroidsTestProject.Controllers
@@ -49,7 +49,7 @@ namespace AsteroidsTestProject.Controllers
         protected virtual void Update()
         {
             if (gameManager.GameState.CurrentGamePart != GamePart.Battle) return;
-            
+
             transform.Translate(Direction * Speed * Time.deltaTime, Space.World);
         }
     }

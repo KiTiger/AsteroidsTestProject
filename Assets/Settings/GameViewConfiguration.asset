@@ -12,6 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f19962b218b14730a7a04c45640f860, type: 3}
   m_Name: GameViewConfiguration
   m_EditorClassIdentifier: 
+  spaceshipSpeed: 4
+  spaceshipTurningSpeed: 300
+  bulletsSpeed: 10
+  laserDistance: 30
+  bigAsteroidSpeedMin: 1
+  bigAsteroidSpeedMax: 2
+  smallAsteroidSpeedMin: 2
+  smallAsteroidSpeedMax: 3
+  flyingSaucerSpeed: 2
+  spaceObjectsSpawnOffset: 1
   "visual\u041Codes":
   - viewMode: 0
     spaceshipPref: {fileID: 3614144089286993607, guid: fd64ce407fdf844619e3b433e28fa748, type: 3}

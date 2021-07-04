@@ -1,4 +1,3 @@
-using AsteroidsTestProject.Utils;
 using UnityEngine;
 
 namespace AsteroidsTestProject.Controllers
